@@ -2,11 +2,14 @@
     display: inline-block;
     margin: 32px;
     border: 1px solid #666;
-    width: 500px;
+    width: 65%;
     vertical-align: middle;
 }
 .list_wrap {
     padding: 32px;
+}
+.list_item {
+    margin: 20px 0;
 }
 .add,
 .del {
@@ -35,4 +38,6 @@
     background-color: #fff;
     color: #5c89e4;
     border: 1px solid #5c89e4;
+    position: absolute;
+    right: 32px;
 }

@@ -61,7 +61,7 @@ export default class Index extends Component<MyProps, MyState> {
           <Text>Todo List</Text>
           {
             list.map((item, index) => {
-              return <View>
+              return <View className='list_item'>
                 <Text>{index + 1}.{item}</Text>
                 <Text className='del' onClick={this.removeItem.bind(this, index)}>删除</Text>
               </View>
