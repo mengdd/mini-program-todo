@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Input } from '@tarojs/components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -16,11 +16,31 @@ export default class Index extends Component {
 
   }
 
+  addItem() {
+    let { list } = this.state
+    const inputVal = this.inputVal
+
+    if (inputVal == '') return
+    else {
+      list.push(inputVal)
+    }
+    this.setState({
+      list,
+      inputVal: ''
+    })
+  }
+
+  inputHandler(e) {
+    this.inputVal = e.target.value
+  }
+
   render() {
     let { list, inputVal } = this.state
 
     return (
       <View className='index'>
+        <Input className='input' type='text' value={inputVal} onInput={this.inputHandler.bind(this)} />
+        <Text className='add' onClick={this.addItem.bind(this)}>添加</Text>
         <View className='list_wrap'>
           <Text>Todo List</Text>
           {
