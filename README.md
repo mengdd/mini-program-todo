@@ -12,3 +12,6 @@ or:
 $ taro build --type weapp --watch
 $ taro build --type weapp
 ```
+
+## Screenshots
+![todo list](./screenshots/todo-list-v0.1.0.png)
