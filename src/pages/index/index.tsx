@@ -30,6 +30,14 @@ export default class Index extends Component {
     })
   }
 
+  removeItem(index) {
+    let { list } = this.state
+    list.splice(index, 1)
+    this.setState({
+      list
+    })
+  }
+
   inputHandler(e) {
     this.inputVal = e.target.value
   }
@@ -47,6 +55,7 @@ export default class Index extends Component {
             list.map((item, index) => {
               return <View>
                 <Text>{index + 1}.{item}</Text>
+                <Text className='del' onClick={this.removeItem.bind(this, index)}>删除</Text>
               </View>
             })
           }
