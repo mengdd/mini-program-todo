@@ -2,7 +2,15 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text, Input } from '@tarojs/components'
 import './index.scss'
 
-export default class Index extends Component {
+interface MyProps {
+}
+
+interface MyState {
+  list: Array<string>;
+  inputVal: string;
+}
+
+export default class Index extends Component<MyProps, MyState> {
   config: Config = {
     navigationBarTitleText: '首页'
   }
@@ -18,7 +26,7 @@ export default class Index extends Component {
 
   addItem() {
     let { list } = this.state
-    const inputVal = this.inputVal
+    const inputVal = this.state.inputVal
 
     if (inputVal == '') return
     else {
@@ -39,7 +47,7 @@ export default class Index extends Component {
   }
 
   inputHandler(e) {
-    this.inputVal = e.target.value
+    this.setState({ inputVal: e.target.value })
   }
 
   render() {
